@@ -1,0 +1,11 @@
+{
+  "id": "book_4",
+  "title": "كتاب الحدود متن 1",
+  "category": "figh",
+  "chapters": [
+    {
+      "title": "المقدمة",
+      "file": "ch_0.html"
+    }
+  ]
+}

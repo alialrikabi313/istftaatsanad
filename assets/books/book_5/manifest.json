@@ -1,0 +1,15 @@
+{
+  "id": "book_5",
+  "title": "مسائل القصاص مصحح نهائي",
+  "category": "figh",
+  "chapters": [
+    {
+      "title": "المقدمة",
+      "file": "ch_0.html"
+    },
+    {
+      "title": "كتاب الديات",
+      "file": "ch_1.html"
+    }
+  ]
+}

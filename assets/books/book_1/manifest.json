@@ -1,0 +1,11 @@
+{
+  "id": "book_1",
+  "title": "اشتراك الليل للسيد الخوئي",
+  "category": "general",
+  "chapters": [
+    {
+      "title": "المقدمة",
+      "file": "ch_0.html"
+    }
+  ]
+}

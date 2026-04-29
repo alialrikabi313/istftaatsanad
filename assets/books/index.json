@@ -1,0 +1,68 @@
+[
+  {
+    "id": "book_1",
+    "title": "اشتراك الليل للسيد الخوئي",
+    "category": "general",
+    "path": "assets/books/book_1/manifest.json"
+  },
+  {
+    "id": "book_2",
+    "title": "الشعائر الدينية",
+    "category": "aqidah",
+    "path": "assets/books/book_2/manifest.json"
+  },
+  {
+    "id": "book_3",
+    "title": "سند الناسكين 1446",
+    "category": "hajj",
+    "path": "assets/books/book_3/manifest.json"
+  },
+  {
+    "id": "book_4",
+    "title": "كتاب الحدود",
+    "category": "figh",
+    "path": "assets/books/book_4/manifest.json"
+  },
+  {
+    "id": "book_5",
+    "title": "مسائل القصاص ",
+    "category": "figh",
+    "path": "assets/books/book_5/manifest.json"
+  },
+  {
+    "id": "book_6",
+    "title": "مسائل الديات ",
+    "category": "figh",
+    "path": "assets/books/book_6/manifest.json"
+  },
+  {
+    "id": "book_7",
+    "title": "منتخب المنهاج",
+    "category": "figh",
+    "path": "assets/books/book_7/manifest.json"
+  },
+  {
+    "id": "book_8",
+    "title": "منهاج العبادات",
+    "category": "figh",
+    "path": "assets/books/book_8/manifest.json"
+  },
+  {
+    "id": "book_9",
+    "title": "منهاج المعاملات الى النكاح",
+    "category": "figh",
+    "path": "assets/books/book_9/manifest.json"
+  },
+  {
+    "id": "book_10",
+    "title": "منهاج من اللعان الى الارث",
+    "category": "figh",
+    "path": "assets/books/book_10/manifest.json"
+  },
+  {
+    "id": "book_11",
+    "title": "منهجية تاريخية وقواعد شعائرية",
+    "category": "aqidah",
+    "path": "assets/books/book_11/manifest.json"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "id": "book_3",
+  "title": "سند الناسكين 1446",
+  "category": "hajj",
+  "chapters": [
+    {
+      "title": "المقدمة",
+      "file": "ch_0.html"
+    },
+    {
+      "title": "فصل في النيابة",
+      "file": "ch_1.html"
+    },
+    {
+      "title": "فصل في حجّ‌ الإفراد",
+      "file": "ch_2.html"
+    }
+  ]
+}

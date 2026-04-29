@@ -1,0 +1,101 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─────────────────────────────────────────────
+    // Helpers
+    // ─────────────────────────────────────────────
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    // ─────────────────────────────────────────────
+    // admins: المسجَّل حديثاً يُنشئ مستنده بنفسه (approved=false افتراضاً)؛
+    // الموافقة تحصل يدوياً من Console بتعيين approved=true.
+    // تحديث الحقول الحساسة مقيّد لمالك المستند فقط.
+    // حذف غير مسموح من العميل.
+    // ─────────────────────────────────────────────
+    match /admins/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+
+      allow create: if isOwner(uid)
+        && request.resource.data.uid == uid;
+
+      allow update: if isOwner(uid);
+
+      allow delete: if false;
+    }
+
+    // ─────────────────────────────────────────────
+    // users: user manages own doc; admins can read all
+    // ─────────────────────────────────────────────
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create, update: if isOwner(uid);
+      allow delete: if isAdmin();
+
+      // favorites subcollection is user-owned
+      match /favorites/{qId} {
+        allow read, write: if isOwner(uid);
+      }
+    }
+
+    // ─────────────────────────────────────────────
+    // Content: topics / subtopics / questions
+    // Public read, admin-only write
+    // ─────────────────────────────────────────────
+    match /topics/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /subtopics/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /questions/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ─────────────────────────────────────────────
+    // inbox: signed-in users create messages; admins manage
+    // ─────────────────────────────────────────────
+    match /inbox/{id} {
+      allow read: if isAdmin()
+        || (isSignedIn() && resource.data.uid == request.auth.uid);
+
+      allow create: if isSignedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status in ['new', 'pending'];
+
+      allow update, delete: if isAdmin();
+    }
+
+    // ─────────────────────────────────────────────
+    // auth_codes: قراءة عامة (المستخدم يقرأ الرمز بإيميله قبل تسجيل الدخول)،
+    // الكتابة للمشرف فقط.
+    // ملاحظة: إيميل المستخدم = معرف المستند، لذا القراءة تتطلب معرفة الإيميل.
+    // ─────────────────────────────────────────────
+    match /auth_codes/{email} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

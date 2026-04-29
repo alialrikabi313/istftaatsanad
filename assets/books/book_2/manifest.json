@@ -1,0 +1,11 @@
+{
+  "id": "book_2",
+  "title": "الشعائر الدينية",
+  "category": "aqidah",
+  "chapters": [
+    {
+      "title": "المقدمة",
+      "file": "ch_0.html"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "11946535479",
+    "project_id": "shaikhsanad-59127",
+    "storage_bucket": "shaikhsanad-59127.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11946535479:android:0b27859ab6ee79884e2db2",
+        "android_client_info": {
+          "package_name": "com.alialrikabi313.istftaatsanad"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaB32th3N2d-BelPb3vkbpZqAuXHGuMY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
